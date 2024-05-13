@@ -5,7 +5,7 @@
 #
 # You can learn more about package authoring with RStudio at:
 #
-#   http://r-pkgs.had.co.nz/
+#   https://r-pkgs.org
 #
 # Some useful keyboard shortcuts for package authoring:
 #
