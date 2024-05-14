@@ -8,6 +8,8 @@
 #' @examples
 #' result <- check_quietly("myPackage")
 #' @export
+#' @importFrom purrr quietly
+#' @importFrom devtools check install
 check_quietly <- purrr::quietly(devtools::check)
 
 #' Quietly Install Packages
