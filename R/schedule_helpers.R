@@ -20,6 +20,7 @@ advdatev0 <- function(weekonemonday,
                     topic =  NULL,
                     assignment = NULL,
                     unit = "Module ") {
+  requireNamespace(magrittr)
   # as.Date does not like piping
   tmon <- as.Date(weekonemonday + 7 * (week - 1)) %>%
     format(format = "%m/%d")
@@ -106,6 +107,7 @@ advdate <- function(weekonemonday,
                     unit = "Module ",
                     version = 1,
                     ... ) {
+  requireNamespace
 if (version == 0 & !is.null(version)) {
   return(advdatev1(weekonemonday=weekonemonday,
                                          week=week,
@@ -136,7 +138,7 @@ if (version == 0 & !is.null(version)) {
     }
 
     # Calculate dates
-    start_date <- as.Date(weekonemonday)
+    start_date <- base::as.Date(weekonemonday)
     dates <- start_date + 0:6 + 7 * (week - 1)
     formatted_dates <- format(dates, "%m/%d")
     names(formatted_dates) <- c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
@@ -147,7 +149,7 @@ if (version == 0 & !is.null(version)) {
     }
 
     if (!is.null(assignment)) {
-      day_abbr <- switch(tolower(substr(assignment, 1, 3)),
+      day_abbr <- switch(tolower(base::substr(assignment, 1, 3)),
                          "mon" = "Mon",
                          "tue" = "Tue",
                          "wed" = "Wed",
