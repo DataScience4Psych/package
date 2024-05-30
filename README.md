@@ -13,8 +13,8 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 version](https://www.r-pkg.org/badges/version/DS4P)](https://cran.r-project.org/package=DS4P)
 [![Package
 downloads](https://cranlogs.r-pkg.org/badges/grand-total/DS4P)](https://cran.r-project.org/package=DS4P)</br>
-[![R-CMD-check](https://github.com/R-Computing-Lab/DS4P/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/R-Computing-Lab/DS4P/actions/workflows/R-CMD-check.yaml)
-[![codecov](https://codecov.io/gh/R-Computing-Lab/DS4P/graph/badge.svg?token=2IARK2XSA6)](https://codecov.io/gh/R-Computing-Lab/DS4P)
+[![R-CMD-check](https://github.com/DataScience4Psych/package/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/DataScience4Psych/package/actions/workflows/R-CMD-check.yaml)
+[![codecov](https://codecov.io/gh/DataScience4Psych/package/graph/badge.svg?token=2IARK2XSA6)](https://codecov.io/gh/DataScience4Psych/package)
 ![License](https://img.shields.io/badge/License-GPL_v3-blue.svg)
 <!-- badges: end -->
 
@@ -37,7 +37,7 @@ To install the development version of DS4P from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("R-Computing-Lab/DS4P")
+devtools::install_github("DataScience4Psych/package")
 ```
 
 ## Citation
@@ -67,7 +67,7 @@ A BibTeX entry for LaTeX users is
 
 Contributions to the DS4P project are welcome. For guidelines on how to
 contribute, please refer to the [Contributing
-Guidelines](https://github.com/R-Computing-Lab/DS4P/blob/main/CONTRIBUTING.md).
+Guidelines](https://github.com/DataScience4Psych/package/blob/main/CONTRIBUTING.md).
 Issues and pull requests should be submitted on the GitHub repository.
 For support, please use the GitHub issues page.
 
@@ -98,5 +98,5 @@ strategy](https://tilburgsciencehub.com/topics/automation/version-control/advanc
 
 DS4P is licensed under the GNU General Public License v3.0. For more
 details, see the
-[LICENSE.md](https://github.com/R-Computing-Lab/DS4P/blob/main/LICENSE.md)
+[LICENSE.md](https://github.com/DataScience4Psych/package/blob/main/LICENSE.md)
 file.

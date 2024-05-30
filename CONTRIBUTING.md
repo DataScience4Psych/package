@@ -15,11 +15,11 @@ Thank you for considering contributing to DS4P. This document outlines the proce
 
 ## Code of Conduct
 
-All contributors are expected to adhere to the project's [Code of Conduct](https://github.com/R-Computing-Lab/DS4P/blob/main/CODE_OF_CONDUCT.md). Please read it carefully before contributing.
+All contributors are expected to adhere to the project's [Code of Conduct](https://github.com/DataScience4Psych/package/blob/main/CODE_OF_CONDUCT.md). Please read it carefully before contributing.
 
 ## Getting Started
 
-1. Fork the [DS4P repository](https://github.com/R-Computing-Lab/DS4P) to your GitHub account.
+1. Fork the [DS4P repository](https://github.com/DataScience4Psych/package) to your GitHub account.
 2. Clone the forked repository to your local machine.
 3. Install the required packages and set up the development environment.
 
@@ -68,6 +68,6 @@ Follow the [Tidyverse Style Guide](https://style.tidyverse.org/) for R programmi
 - Use GitHub issues for all communication.
 - For more direct communication, you can [contact the maintainers](mailto:garrissm@wfu.edu).
 
-By contributing, you agree to abide by these guidelines and the project's [Code of Conduct](https://github.com/R-Computing-Lab/DS4P/blob/main/CODE_OF_CONDUCT.md).
+By contributing, you agree to abide by these guidelines and the project's [Code of Conduct](https://github.com/DataScience4Psych/package/blob/main/CODE_OF_CONDUCT.md).
 
 Thank you for contributing to DS4P!
