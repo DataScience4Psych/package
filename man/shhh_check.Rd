@@ -18,6 +18,8 @@ Returns a list of the function results.
 Executes the check or install commands quietly, using purrr's quietly wrapper.
 }
 \examples{
+\dontrun{
 result <- shhh_check("myPackage")
 install_results <- pretty_install("myPackage")
+}
 }

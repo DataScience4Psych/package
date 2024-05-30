@@ -3,13 +3,18 @@
 #' Creates a wrapper around `devtools::check()` to execute package checking quietly.
 #' This function captures and returns the output and errors without printing them directly to the console.
 #'
+#' @param ... Arguments passed to purrr::quietly
 #' @return A function that when executed will return a list containing elements `result`, `output`, `warnings`, and `messages`.
 #' @seealso `purrr::quietly()` for details on the structure of the returned list.
 #' @examples
+#' \dontrun{
 #' result <- check_quietly("myPackage")
+#' }
 #' @export
 #' @importFrom purrr quietly
 #' @importFrom devtools check install
+#'
+
 
 check_quietly <- purrr::quietly(devtools::check)
 
@@ -17,11 +22,13 @@ check_quietly <- purrr::quietly(devtools::check)
 #'
 #' Creates a wrapper around `devtools::install()` to execute package installation quietly.
 #' This function captures and returns the output and errors without printing them directly to the console.
-#'
+#' @param ... Arguments passed to purrr::quietly
 #' @return A function that when executed will return a list containing elements `result`, `output`, `warnings`, and `messages`.
 #' @seealso `purrr::quietly()` for details on the structure of the returned list.
 #' @examples
+#' \dontrun{
 #' result <- install_quietly("myPackage")
+#' }
 #' @export
 install_quietly <- purrr::quietly(devtools::install)
 
@@ -32,8 +39,10 @@ install_quietly <- purrr::quietly(devtools::install)
 #' @param quiet Logical indicating whether to suppress output (default is TRUE for shhh_check).
 #' @return Returns a list of the function results.
 #' @examples
+#' \dontrun{
 #' result <- shhh_check("myPackage")
 #' install_results <- pretty_install("myPackage")
+#' }
 #' @export
 shhh_check <- function(..., quiet = TRUE) {
   out <- check_quietly(..., quiet = quiet)
@@ -43,7 +52,7 @@ shhh_check <- function(..., quiet = TRUE) {
 #' Pretty Install
 #'
 #' Performs a quiet installation and cleans up the output, only displaying relevant information.
-#' @param ... Arguments passed to devtools::install.
+#' @param ... Arguments passed to install_quietly.
 #' @return Returns a cleaned list of output and messages.
 #' @examples
 #' install_results <- pretty_install("myPackage")

@@ -6,6 +6,9 @@
 \usage{
 check_quietly(...)
 }
+\arguments{
+\item{...}{Arguments passed to purrr::quietly}
+}
 \value{
 A function that when executed will return a list containing elements `result`, `output`, `warnings`, and `messages`.
 }
@@ -14,7 +17,9 @@ Creates a wrapper around `devtools::check()` to execute package checking quietly
 This function captures and returns the output and errors without printing them directly to the console.
 }
 \examples{
+\dontrun{
 result <- check_quietly("myPackage")
+}
 }
 \seealso{
 `purrr::quietly()` for details on the structure of the returned list.

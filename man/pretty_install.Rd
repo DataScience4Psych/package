@@ -7,7 +7,7 @@
 pretty_install(...)
 }
 \arguments{
-\item{...}{Arguments passed to devtools::install.}
+\item{...}{Arguments passed to install_quietly.}
 }
 \value{
 Returns a cleaned list of output and messages.

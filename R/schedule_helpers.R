@@ -9,7 +9,6 @@
 #' @param unit The unit prefix for the week number. Default is "Module ".
 #'
 #' @return A formatted string indicating the dates for the specified week and optional topic or assignment day.
-#' @export
 #'
 #' @examples
 #' advdate("2023-01-09", 1)
@@ -20,22 +19,14 @@ advdatev0 <- function(weekonemonday,
                     topic =  NULL,
                     assignment = NULL,
                     unit = "Module ") {
-  requireNamespace(magrittr)
   # as.Date does not like piping
-  tmon <- as.Date(weekonemonday + 7 * (week - 1)) %>%
-    format(format = "%m/%d")
-  ttue <- as.Date(weekonemonday + 1 + 7 * (week - 1)) %>%
-    format(format = "%m/%d")
-  twed <- as.Date(weekonemonday + 2 + 7 * (week - 1)) %>%
-    format(format = "%m/%d")
-  tthu <- as.Date(weekonemonday + 3 + 7 * (week - 1)) %>%
-    format(format = "%m/%d")
-  tfri <- as.Date(weekonemonday + 4 + 7 * (week - 1)) %>%
-    format(format = "%m/%d")
-  tsat <- as.Date(weekonemonday + 5 + 7 * (week - 1)) %>%
-    format(format = "%m/%d")
-  tsun <- as.Date(weekonemonday + 6 + 7 * (week - 1)) %>%
-    format(format = "%m/%d")
+  tmon <- format(base::as.Date(weekonemonday + 7 * (week - 1)),format = "%m/%d")
+  ttue <- format(base::as.Date(weekonemonday + 1 + 7 * (week - 1)),format = "%m/%d")
+  twed <- format(base::as.Date(weekonemonday + 2 + 7 * (week - 1)),format = "%m/%d")
+  tthu <- format(base::as.Date(weekonemonday + 3 + 7 * (week - 1)),format = "%m/%d")
+  tfri <- format(base::as.Date(weekonemonday + 4 + 7 * (week - 1)),format = "%m/%d")
+  tsat <- format(base::as.Date(weekonemonday + 5 + 7 * (week - 1)),format = "%m/%d")
+  tsun <- format(base::as.Date(weekonemonday + 6 + 7 * (week - 1)),format = "%m/%d")
   zadv <- sprintf("%02d", week)
 
 
@@ -91,6 +82,7 @@ advdatev0 <- function(weekonemonday,
 #' @param assignment The specific assignment day, e.g., "Friday". Default is NULL.
 #' @param unit The unit prefix for the week number. Default is "Module ".
 #' @param version The version of the function to use (0 or 1). Default is 1. Allows for older version to be used.
+#' @param ... Additional arguments to be passed to the function.
 #'
 #' @return A formatted string indicating the dates for the specified week and optional topic or assignment day.
 #' @export
@@ -107,9 +99,8 @@ advdate <- function(weekonemonday,
                     unit = "Module ",
                     version = 1,
                     ... ) {
-  requireNamespace
 if (version == 0 & !is.null(version)) {
-  return(advdatev1(weekonemonday=weekonemonday,
+  return(advdatev0(weekonemonday=weekonemonday,
                                          week=week,
                                          topic =  topic,
                                          assignment = assignment,

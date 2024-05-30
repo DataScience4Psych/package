@@ -26,6 +26,8 @@ advdate(
 \item{unit}{The unit prefix for the week number. Default is "Module ".}
 
 \item{version}{The version of the function to use (0 or 1). Default is 1. Allows for older version to be used.}
+
+\item{...}{Additional arguments to be passed to the function.}
 }
 \value{
 A formatted string indicating the dates for the specified week and optional topic or assignment day.
