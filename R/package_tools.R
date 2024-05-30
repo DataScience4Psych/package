@@ -55,7 +55,9 @@ shhh_check <- function(..., quiet = TRUE) {
 #' @param ... Arguments passed to install_quietly.
 #' @return Returns a cleaned list of output and messages.
 #' @examples
+#' \dontrun{
 #' install_results <- pretty_install("myPackage")
+#' }
 #' @export
 pretty_install <- function(...) {
   out <- install_quietly(...)

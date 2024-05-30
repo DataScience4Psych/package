@@ -7,7 +7,9 @@
 #' @param slide Optional specific slide number to append to the URL.
 #' @return Returns the full URL constructed from the dataframe for the specified title and slide.
 #' @examples
+#' \dontrun{
 #' url <- slide_url(df_slides, "Introduction", 1)
+#' }
 #' @export
 slide_url <- function(df_url, title, slide = NULL) {
   var_url <- paste0(df_url$link[df_url$title == title], slide)
@@ -22,7 +24,9 @@ slide_url <- function(df_url, title, slide = NULL) {
 #' @param ... Additional arguments passed to tweetrmd::include_tweet.
 #' @return Returns the result of attempting to include the tweet, or an error object silently.
 #' @examples
+#' \dontrun{
 #' tweet <- try_include_tweet("https://twitter.com/user/status/1234567890")
+#' }
 #' @export
 try_include_tweet <- function(tweet_url, plain = FALSE, ...) {
   return(try(tweetrmd::include_tweet(tweet_url = tweet_url, plain = plain),
@@ -35,7 +39,9 @@ try_include_tweet <- function(tweet_url, plain = FALSE, ...) {
 #' @param youtube_id YouTube video ID to embed.
 #' @return Returns an iframe for the video if HTML output (excluding ePub) or an image if other formats.
 #' @examples
+#' \dontrun{
 #' video <- embed_youtube_alt("dQw4w9WgXcQ")
+#' }
 #' @export
 embed_youtube_alt <- function(youtube_id) {
   if (knitr::is_html_output(excludes = "epub")) {

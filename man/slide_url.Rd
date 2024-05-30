@@ -20,5 +20,7 @@ Returns the full URL constructed from the dataframe for the specified title and 
 Constructs a URL for slides from a dataframe based on the title and optional specific slide number.
 }
 \examples{
+\dontrun{
 url <- slide_url(df_slides, "Introduction", 1)
+}
 }

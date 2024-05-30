@@ -16,5 +16,7 @@ Returns an iframe for the video if HTML output (excluding ePub) or an image if o
 Embeds a YouTube video or its thumbnail based on output format.
 }
 \examples{
+\dontrun{
 video <- embed_youtube_alt("dQw4w9WgXcQ")
+}
 }

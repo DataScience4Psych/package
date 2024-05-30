@@ -16,5 +16,7 @@ Returns a cleaned list of output and messages.
 Performs a quiet installation and cleans up the output, only displaying relevant information.
 }
 \examples{
+\dontrun{
 install_results <- pretty_install("myPackage")
+}
 }

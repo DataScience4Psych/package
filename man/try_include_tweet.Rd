@@ -20,5 +20,7 @@ Returns the result of attempting to include the tweet, or an error object silent
 Attempts to include a tweet into a knitr document, handling failures quietly.
 }
 \examples{
+\dontrun{
 tweet <- try_include_tweet("https://twitter.com/user/status/1234567890")
+}
 }
