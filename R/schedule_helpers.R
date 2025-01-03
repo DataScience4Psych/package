@@ -127,7 +127,7 @@ if (version == 0 & !is.null(version)) {
     }
 
     if (!is.null(topic) && (!is.vector(topic) || length(topic) < week)) {
-      stop("topic must be a vector with length at least as long as the week number.")
+      warning("topic must be a vector with length at least as long as the week number.")
     }
 
   # Define day mapping
@@ -154,10 +154,13 @@ if (version == 0 & !is.null(version)) {
     if (is.null(topic) && is.null(assignment)) {
       return(paste0(unit, sprintf("%02d", week), ", ", formatted_dates["Mon"], " - ", formatted_dates["Fri"]))
     }
-
+    if (!is.null(topic) && length(topic) < week) {
+      warning("Topic not defined for the specified week. Defaulting to 'No topic'.")
+      topic <- c(topic, rep("No topic", week - length(topic)))
+    }
     # Return the assignment day
     if (!is.null(assignment)) {
-      return(formatted_dates[day_abbr])
+      return(unname(formatted_dates[day_abbr]))
     }
 
     if (!is.null(topic)) {
