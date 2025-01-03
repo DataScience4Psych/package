@@ -1,7 +1,7 @@
-#' Advance Date Calculation
+#' Advance Date Calculation (v0 - Legacy Version)
 #'
-#' This function calculates and formats dates for each day of a specified week, based on the start date of the first Monday.
-#'
+#' This function calculates and formats dates for each day of a specified week
+#' (older implementation).
 #' @param weekonemonday The date of the first Monday of the schedule in "YYYY-MM-DD" format.
 #' @param week The week number for which the dates need to be calculated.
 #' @param topic A vector of topics for each week. Default is NULL.
@@ -9,11 +9,7 @@
 #' @param unit The unit prefix for the week number. Default is "Module ".
 #'
 #' @return A formatted string indicating the dates for the specified week and optional topic or assignment day.
-#'
-#' @examples
-#' advdate("2023-01-09", 1)
-#' advdate("2023-01-09", 2, topic = c("Intro", "Advanced Topics"))
-#' advdate("2023-01-09", 3, assignment = "Friday")
+
 advdatev0 <- function(weekonemonday,
                     week,
                     topic =  NULL,
@@ -99,15 +95,29 @@ advdate <- function(weekonemonday,
                     unit = "Module ",
                     version = 1,
                     ... ) {
+
+
+# Use the older version if specified
 if (version == 0 & !is.null(version)) {
   return(advdatev0(weekonemonday=weekonemonday,
-                                         week=week,
+                                         week = week,
                                          topic =  topic,
                                          assignment = assignment,
                                          unit = unit))
 } else {
 
-    # Validate inputs
+  # Validate inputs
+  tryCatch({
+    start_date <- as.Date(weekonemonday)
+    if (is.na(start_date)) stop("Invalid date provided for weekonemonday.")
+  }, error = function(e) {
+    stop("weekonemonday must be a valid date in 'YYYY-MM-DD' format.")
+  })
+
+  if (!version %in% c(0, 1)) {
+    stop("Invalid version specified. Please use 0 or 1.")
+  }
+
   if (!inherits(weekonemonday, "Date") && (!is.character(weekonemonday) || !grepl("^\\d{4}-\\d{2}-\\d{2}$", weekonemonday))) {
     stop("weekonemonday must be a Date object or a character string in 'YYYY-MM-DD' format.")
   }
@@ -120,13 +130,19 @@ if (version == 0 & !is.null(version)) {
       stop("topic must be a vector with length at least as long as the week number.")
     }
 
-  if (!is.null(assignment) && !assignment %in% c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
-                                                 "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday",
-                                                 "mon", "tue", "wed", "thu", "fri", "sat", "sun",
-                                                 "m", "t", "w", "r", "f", "s", "u",
-                                                 "M", "T", "W", "R", "F", "S", "U")) {
-      stop("assignment must be a valid day.")
-    }
+  # Define day mapping
+  day_map <- c(
+    "mon" = "Mon", "tue" = "Tue", "wed" = "Wed", "thu" = "Thu", "fri" = "Fri",
+    "sat" = "Sat", "sun" = "Sun", "m" = "Mon", "t" = "Tue", "w" = "Wed",
+    "r" = "Thu", "f" = "Fri", "s" = "Sat", "u" = "Sun"
+  )
+
+  # Validate assignment using day_map
+  if (!is.null(assignment)) {
+    day_abbr <- day_map[tolower(substr(assignment, 1, 3))]
+    if (is.na(day_abbr)) stop("Invalid assignment day provided.")
+  }
+
 
     # Calculate dates
     start_date <- base::as.Date(weekonemonday)
@@ -139,22 +155,8 @@ if (version == 0 & !is.null(version)) {
       return(paste0(unit, sprintf("%02d", week), ", ", formatted_dates["Mon"], " - ", formatted_dates["Fri"]))
     }
 
+    # Return the assignment day
     if (!is.null(assignment)) {
-      day_abbr <- switch(tolower(base::substr(assignment, 1, 3)),
-                         "mon" = "Mon",
-                         "tue" = "Tue",
-                         "wed" = "Wed",
-                         "thu" = "Thu",
-                         "fri" = "Fri",
-                         "sat" = "Sat",
-                         "sun" = "Sun",
-                         "m" = "Mon",
-                         "t" = "Tue",
-                         "w" = "Wed",
-                         "r" = "Thu",
-                         "f" = "Fri",
-                         "s" = "Sat",
-                         "u" = "Sun")
       return(formatted_dates[day_abbr])
     }
 

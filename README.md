@@ -5,9 +5,8 @@
 
 <!-- badges: start -->
 
-[![status](https://joss.theoj.org/papers/ee3a025be4f61584f977a7657d936187/status.svg)](https://joss.theoj.org/papers/10.21105/joss.06203)
-</br> [![Project Status: Active – The project has reached a stable,
-usable state and is being actively
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![R package
 version](https://www.r-pkg.org/badges/version/DS4P)](https://cran.r-project.org/package=DS4P)
@@ -18,10 +17,8 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/DS4P)](https://cran.r-p
 ![License](https://img.shields.io/badge/License-GPL_v3-blue.svg)
 <!-- badges: end -->
 
-The DS4P R package offers a comprehensive suite of functions tailored
-for extended behavior genetics analysis, including model identification,
-calculating relatedness, pedigree conversion, pedigree simulation, and
-more.
+The DS4P R package offers a suite of functions developed to as part of
+the Data Science for Psychologists course.
 
 ## Installation
 
