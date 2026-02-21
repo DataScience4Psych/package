@@ -18,6 +18,9 @@ Imports:
     webshot,
     purrr,
     tweetrmd,
+    httr,
+    stringr,
+    tidyverse,
     knitr
 Suggests:
     testthat (>= 3.0.0)

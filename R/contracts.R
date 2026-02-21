@@ -139,7 +139,6 @@ extract_lab_dates <- function(md_text) {
 #' @importFrom stringr str_extract_all str_extract regex
 #' @importFrom tibble tibble
 #' @importFrom dplyr arrange
-#' @importFrom magrittr %>%
 #' @export
 extract_portfolio_dates <- function(md_text) {
   # Single-piece lines
@@ -182,6 +181,6 @@ extract_portfolio_dates <- function(md_text) {
   tibble::tibble(
     num = as.integer(all_nums),
     due_date = map_vec(all_dates, parse_md_date)
-  ) %>%
+  ) |>
     dplyr::arrange(num)
 }
