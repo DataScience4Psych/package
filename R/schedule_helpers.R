@@ -76,7 +76,7 @@
   } else {
     tmp <- paste0(unit, zadv, ", ", tmon, " - ", tfri, " : ", topic[week])
   }
-  return(tmp)
+  tmp
 }
 #' Advance Date Calculation
 #'
@@ -110,13 +110,13 @@ advdate <- function(weekonemonday,
     stop("Invalid legacy specified. Please use TRUE or FALSE.")
   }
   if (legacy == TRUE) {
-    return(.advdatev0(
+    .advdatev0(
       weekonemonday = weekonemonday,
       week = week,
       topic = topic,
       assignment = assignment,
       unit = unit
-    ))
+    )
   } else if (legacy == FALSE) {
     # Validate inputs
     tryCatch(
@@ -175,7 +175,7 @@ advdate <- function(weekonemonday,
     }
 
     if (!is.null(topic)) {
-      return(paste0(unit, sprintf("%02d", week), ", ", formatted_dates["Mon"], " - ", formatted_dates["Fri"], " : ", topic[week]))
+      paste0(unit, sprintf("%02d", week), ", ", formatted_dates["Mon"], " - ", formatted_dates["Fri"], " : ", topic[week])
     }
   } else {
     stop("Invalid legacy specified. Please use TRUE or FALSE.")
