@@ -6,7 +6,7 @@ Authors@R: person("S. Mason", "Garrison", email = "garrissm@wfu.edu",
                   role = c("aut", "cre", "cph"),
                   comment = c(ORCID = "0000-0002-4804-6003"))
 Maintainer: S. Mason Garrison <garrissm@wfu.edu>
-Description: This package provides a set of functions and datasets to support introductionary data scientists.
+Description: This package provides a set of functions and datasets to support introductory data scientists.
 License: GPL-3
 Encoding: UTF-8
 BugReports: https://github.com/DataScience4Psych/ds4p_package/issues
