@@ -11,13 +11,12 @@
 #'
 #' @examples
 #' repo_to_raw("https://github.com/user/repo")
-#' @importFrom magrittr %>%
 #' @export
 repo_to_raw <- function(repo_url) {
   # https://github.com/user/repo -> https://raw.githubusercontent.com/user/repo/main/contract.md
   repo_url <- sub("/$", "", repo_url)
   sub("https://github.com/", "https://raw.githubusercontent.com/", repo_url,
-      fixed = TRUE) %>%
+      fixed = TRUE) |>
     paste0("/main/contract.md")
 }
 
