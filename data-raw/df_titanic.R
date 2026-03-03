@@ -18,20 +18,20 @@ data("titanic_train")
 data("titanic_test")
 
 # Rename columns to lowercase
-names(df_ship) <- names(df_ship) %>% tolower()
-names(titanic_train) <- names(titanic_train) %>% tolower()
-names(titanic_test) <- names(titanic_test) %>% tolower()
+names(df_ship) <- names(df_ship) |> tolower()
+names(titanic_train) <- names(titanic_train) |> tolower()
+names(titanic_test) <- names(titanic_test) |> tolower()
 
 # Check for overlapping names between datasets
-df_ship %>%
+df_ship |>
   filter(tolower(name) %in% tolower(titanic_train$name) &
-    tolower(name) %in% tolower(titanic_test$name)) %>%
+    tolower(name) %in% tolower(titanic_test$name)) |>
   select(name)
 
 # Create a variable to identify which dataset each row belongs to
 trimms <- '["\\\\\\(\\)\\s]'
 
-df <- df_ship %>%
+df <- df_ship |>
   mutate(
     name = str_remove_all(name, '"'),
     test = case_when( # there are two Kelly, Mr. James  and Connolly, Miss. Kate
@@ -47,8 +47,8 @@ summary(df$test)
 sum(df$test == 0, na.rm = TRUE) # 891
 sum(df$test == 1, na.rm = TRUE) # 418
 
-df %>%
-  filter(is.na(test)) %>%
+df |>
+  filter(is.na(test)) |>
   select(name)
 
 titanic_passengers <- df
